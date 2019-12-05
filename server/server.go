@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	v1 "github.com/ivost/shared/grpc/myservice"
+	v1 "github.com/ivost/shared/grpc/myvault"
 	"github.com/ivost/shared/pkg/config"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -43,7 +43,7 @@ func New(conf *config.Config) (s *Server) {
 	}
 	// Register reflection service on gRPC server.
 	reflection.Register(s.srv)
-	v1.RegisterMyServiceServer(s.srv, s)
+	v1.RegisterVaultServiceServer(s.srv, s)
 	return s
 }
 
@@ -74,7 +74,7 @@ func (s *Server) ListenAndServe() error {
 	defer cancel()
 
 	time.Sleep(1 * time.Second)
-	err = v1.RegisterMyServiceHandlerFromEndpoint(ctx, mux, s.conf.GrpcAddr, opts)
+	err = v1.RegisterVaultServiceHandlerFromEndpoint(ctx, mux, s.conf.GrpcAddr, opts)
 	if err != nil {
 		log.Printf("Register service error %v", err)
 		return err

@@ -9,5 +9,5 @@ https://github.com/kubernetes-sigs/kustomize/tree/master/examples/helloWorld
 
 how to change image tag in deployment
 ```
-kustomize edit set image ivostoy/myservice=ivostoy/myservice:0.12.4.0
+kustomize edit set image ivostoy/myvault=ivostoy/myvault:0.12.4.0
 ```

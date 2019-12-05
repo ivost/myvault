@@ -1,4 +1,4 @@
-NAME := myservice
+NAME := myvault
 
 BUILD_TARGET = build
 GO := go
@@ -20,7 +20,8 @@ BUILD_DATE := $(shell date +%Y%m%d-%H:%M:%S)
 
 GIT_COMMIT=$(shell git describe --dirty --always  2> /dev/null  || echo 'unknown')
 
-PKG=github.com/ivost/sandbox/myservice/pkg
+#PKG=github.com/ivost/myvault/pkg
+PKG=github.com/ivost/shared/pkg
 BUILDFLAGS=-ldflags "-s -w -X ${PKG}/version.Version=${VERSION} -X ${PKG}/version.Build=${GIT_COMMIT}"
 
 CGO_ENABLED = 0
@@ -36,6 +37,6 @@ IMG_BLD=${DOCKER_REPO}/${NAME}:${IMG_BLD_TAG}
 BASE=./k8s/base
 OVERLAYS=./k8s/overlays
 
-#POD:=$(shell kubectl get pod -l app=myservice -o  jsonpath='{.items[*].metadata.name}') > /dev/nul
+#POD:=$(shell kubectl get pod -l app=myvault -o  jsonpath='{.items[*].metadata.name}') > /dev/nul
 
 include ../shared/shared.mk

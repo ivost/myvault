@@ -7,13 +7,13 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/ptypes/empty"
-	v1 "github.com/ivost/shared/grpc/myservice"
+	v1 "github.com/ivost/shared/grpc/myvault"
 	"github.com/ivost/shared/pkg/version"
 )
 
 func (s *Server) Health(ctx context.Context, none *empty.Empty) (resp *v1.HealthResponse, err error) {
 	resp = &v1.HealthResponse{
-		Name:    "myservice",
+		Name:    "myvault",
 		Version: version.Version,
 		Build:   version.Build,
 		Status:  "OK",

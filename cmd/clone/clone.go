@@ -5,13 +5,10 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
-
-	"github.com/ivost/shared/pkg/version"
 )
 
 var (
@@ -20,7 +17,7 @@ var (
 	codeProjectPath string
 )
 
-var DefaultRepo = "github.com/ivost/sandbox"
+var DefaultRepo = "github.com/ivost/myvault"
 
 var console *bufio.Reader
 
@@ -35,9 +32,8 @@ var newDir string
 var newService string
 
 func main() {
-
-	log.Printf("%v cloner %v %v", version.Name, version.Version, version.Build)
-
+	//todo: config?
+	//log.Printf("%v cloner %v %v", version.Name, version.Version, version.Build)
 	doPrompts()
 
 	src := oldDir
@@ -139,14 +135,14 @@ func doPrompts() {
 	fmt.Println("clone will clone existing service directory to new directory")
 	fmt.Println("")
 
-	oldUrl = prompt("type url of old import path or <enter> for " + DefaultRepo)
+	oldUrl = prompt("type the url of the old import path or <enter> for " + DefaultRepo)
 	if oldUrl == "" {
-		oldUrl = "github.com/ivost/sandbox"
+		oldUrl = "github.com/ivost/myvault"
 	}
 	if !validUrl(oldUrl) {
 		os.Exit(1)
 	}
-	newUrl = prompt("type url of new repo or <enter> to keep " + oldUrl)
+	newUrl = prompt("type url of the new repo or <enter> to keep " + oldUrl)
 	if newUrl == "" {
 		newUrl = oldUrl
 	}
@@ -154,9 +150,9 @@ func doPrompts() {
 		os.Exit(1)
 	}
 
-	oldName = prompt("type old service name or <enter> for myservice.MyService")
+	oldName = prompt("type the name of old service or <enter> for myvault.VaultService")
 	if oldName == "" {
-		oldName = "myservice.MyService"
+		oldName = "myvault.VaultService"
 	}
 	oldDir, oldService = splitName(oldName)
 	newName = prompt("type the name of the new service - i.e. newservice.NewService")

@@ -1,13 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: myservice
+  name: myvault
   labels:
-    app: myservice
+    app: myvault
 spec:
   type: ClusterIP
   selector:
-    app: myservice
+    app: myvault
   ports:
     - name: grpc
       port: 80

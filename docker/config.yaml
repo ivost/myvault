@@ -1,4 +1,4 @@
-# default myservice client configuration - using ambassador API gateway
+# default myvault client configuration - using ambassador API gateway
 # use the default config.yaml for local tests
 
 grpcAddr: "0.0.0.0:52052"

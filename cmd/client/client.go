@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/ivost/myservice/pkg/client"
+	"github.com/ivost/myvault/pkg/client"
 	"github.com/ivost/shared/pkg/config"
 	"github.com/ivost/shared/pkg/version"
 )

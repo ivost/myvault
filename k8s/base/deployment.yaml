@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 
 metadata:
-  name: myservice
+  name: myvault
 
 spec:
   replicas: 2
@@ -15,18 +15,18 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: myservice
+      app: myvault
   template:
     metadata:
       labels:
-        app: myservice
+        app: myvault
       annotations:
         prometheus.io/scrape: "false"
 
     spec:
       containers:
-      - name: myservice
-        image: ivostoy/myservice:0.0.0.0
+      - name: myvault
+        image: ivostoy/myvault:0.0.0.0
         # see readme for policy in minikube
         imagePullPolicy: Never
         #imagePullPolicy: Always

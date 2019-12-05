@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: myservice-ingress
+  name: myvault-ingress
   annotations:
     kubernetes.io/ingress.class: alb-public
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -15,7 +15,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
   labels:
-    app: myservice
+    app: myvault
 
 spec:
   rules:
@@ -23,5 +23,5 @@ spec:
         paths:
           - path: /*
             backend:
-              serviceName: myservice
+              serviceName: myvault
               servicePort: 8080

@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/golang/protobuf/ptypes/empty"
-	v1 "github.com/ivost/shared/grpc/myservice"
+	v1 "github.com/ivost/shared/grpc/myvault"
 	"github.com/ivost/shared/pkg/config"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -12,7 +12,7 @@ import (
 
 type Client struct {
 	conf   *config.Config
-	client v1.MyServiceClient
+	client v1.VaultServiceClient
 }
 
 func New(conf *config.Config) *Client {
@@ -25,7 +25,7 @@ func New(conf *config.Config) *Client {
 		if err != nil {
 			panic(err)
 		}
-		c.client = v1.NewMyServiceClient(conn)
+		c.client = v1.NewVaultServiceClient(conn)
 		return c
 	}
 	creds, err := credentials.NewClientTLSFromFile(conf.CertFile, "")
@@ -36,7 +36,7 @@ func New(conf *config.Config) *Client {
 	if err != nil {
 		panic(err)
 	}
-	c.client = v1.NewMyServiceClient(conn)
+	c.client = v1.NewVaultServiceClient(conn)
 	return c
 }
 

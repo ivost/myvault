@@ -1,4 +1,4 @@
-module github.com/ivost/myservice
+module github.com/ivost/myvault
 
 go 1.13
 

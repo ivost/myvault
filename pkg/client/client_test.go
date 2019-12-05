@@ -3,7 +3,7 @@ package client_test
 import (
 	"testing"
 
-	"github.com/ivost/myservice/pkg/client"
+	"github.com/ivost/myvault/pkg/client"
 	"github.com/ivost/shared/pkg/config"
 	"github.com/stretchr/testify/require"
 )
