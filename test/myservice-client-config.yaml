@@ -1,9 +1,9 @@
 # myvault client configuration - using ambassador API gateway
 # use the default config.yaml for local tests
 
-# myvault
-grpcAddr: "0.0.0.0:52053"
-restAddr: "0.0.0.0:8081"
+# myservice
+grpcAddr: "0.0.0.0:52052"
+restAddr: "0.0.0.0:8080"
 
 #grpcAddr: "192.168.99.100:30506"
 #restAddr: "192.168.99.100:30506"

@@ -13,11 +13,12 @@ func main() {
 	cf := config.DefaultConfigFile
 	conf := config.New(cf)
 	c := client.New(conf)
-	log.Printf("grpc client endpoint:  %v, secure: %v", conf.GrpcAddr, conf.Secure)
+	log.Printf("myvault grpc client endpoint:  %v, secure: %v", conf.GrpcAddr, conf.Secure)
 	rsp, err := c.Health()
 	if err != nil {
 		log.Printf("error %v", err)
 		return
 	}
-	log.Printf("response %+v", rsp)
+
+	log.Printf("myvault health response: %+v", rsp)
 }
