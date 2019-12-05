@@ -10,4 +10,4 @@ resources:
 images:
 - name: ivostoy/myvault
   newName: ivostoy/myvault
-  newTag: 0.12.5.0-313a7b1-dirty
+  newTag: 0.12.5.0-2e4ee05-dirty
