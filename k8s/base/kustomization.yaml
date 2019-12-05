@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+- service.yaml
+- map1.yaml
+- map2.yaml
+
+images:
+- name: ivostoy/myservice
+  newName: ivostoy/myservice
+  newTag: 0.12.4.5-31630ba-dirty

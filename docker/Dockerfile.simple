@@ -1,0 +1,16 @@
+FROM golang:alpine as builder
+
+EXPOSE 8080 52052
+
+WORKDIR /root
+
+COPY . .
+
+RUN go build -o app cmd/server/server.go
+
+RUN ls -al .
+
+
+ENTRYPOINT ["/root/app"]
+
+

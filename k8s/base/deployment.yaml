@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: myservice
+
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: myservice
+  template:
+    metadata:
+      labels:
+        app: myservice
+      annotations:
+        prometheus.io/scrape: "false"
+
+    spec:
+      containers:
+      - name: myservice
+        image: ivostoy/myservice:0.0.0.0
+        # see readme for policy in minikube
+        imagePullPolicy: Never
+        #imagePullPolicy: Always
+        #imagePullPolicy: IfNotPresent
+        env:
+          - name: GRPC_PORT
+            value: "52052"
+          - name: REST_PORT
+            value: "8080"
+        ports:
+        - containerPort: 52052
+          name: grpc-api
+          protocol: TCP
+        - containerPort: 8080
+          name: rest
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi

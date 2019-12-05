@@ -1,0 +1,27 @@
+# not used - just for reference
+# shows how to deploy and use metadata for AWS ALB with auto DNS and TLS
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myservice-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb-public
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/security-groups: sg-08726e22ca6de083d
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:930325689781:certificate/d300bef5-6e07-419e-a197-8572ff1e8171
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
+  labels:
+    app: myservice
+
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: myservice
+              servicePort: 8080

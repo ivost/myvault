@@ -1,0 +1,9 @@
+apiVersion: getambassador.io/v1
+kind: Mapping
+metadata:
+  name: myservice-map2
+spec:
+  grpc: true
+  prefix: /myservice.MyService/
+  rewrite: /myservice.MyService/
+  service: myservice

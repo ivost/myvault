@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: myservice
+  labels:
+    app: myservice
+spec:
+  type: ClusterIP
+  selector:
+    app: myservice
+  ports:
+    - name: grpc
+      port: 80
+      protocol: TCP
+      targetPort: grpc-api
+    - name: rest
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
