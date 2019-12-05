@@ -6,6 +6,7 @@
 *.so
 *.dylib
 build/
+lbuild/
 .idea/
 
 # Test binary, build with `go test -c`
