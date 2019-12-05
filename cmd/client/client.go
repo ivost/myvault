@@ -3,10 +3,9 @@ package main
 import (
 	"log"
 
+	"github.com/ivost/myservice/pkg/client"
+	"github.com/ivost/shared/pkg/config"
 	"github.com/ivost/shared/pkg/version"
-
-	"github.com/ivost/myservice/client"
-	"github.com/ivost/myservice/config"
 )
 
 func main() {
