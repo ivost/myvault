@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/ivost/sandbox/myservice/config"
-	v1 "github.com/ivost/sandbox/myservice/myservice"
+	v1 "github.com/ivost/shared/grpc/myservice"
+	"github.com/ivost/shared/pkg/config"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/reflection"

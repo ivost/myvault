@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ivost/sandbox/myservice/pkg/version"
+	"github.com/ivost/shared/pkg/version"
 )
 
 var (

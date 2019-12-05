@@ -6,10 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ivost/sandbox/myservice/pkg/version"
-
 	"github.com/golang/protobuf/ptypes/empty"
-	v1 "github.com/ivost/sandbox/myservice/myservice"
+	v1 "github.com/ivost/shared/grpc/myservice"
+	"github.com/ivost/shared/pkg/version"
 )
 
 func (s *Server) Health(ctx context.Context, none *empty.Empty) (resp *v1.HealthResponse, err error) {

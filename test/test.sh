@@ -1,8 +1,7 @@
 #!/bin/bash
 #set -euo pipefail
 
-echo === health
-
+#echo === health
 #url=localhost:8080/myservice
 # http $url/health
 url=localhost:8080
