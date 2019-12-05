@@ -1,8 +1,6 @@
 #!/bin/bash
 #set -euo pipefail
 
-echo === health
-
 url=192.168.99.100:30506/myservice
 # http $url/health
 
@@ -17,7 +15,7 @@ http $url/health
 #grpcurl -plaintext 192.168.99.100:30506  ${grpc}/Health
 
 # but this is OK
-build/client  -config client-config.yaml
+../build/client  -config client-config.yaml
 
 # elvis is OK too (something with reflection?)
 
